@@ -1,0 +1,105 @@
+<mat-toolbar>
+  <div class="search">
+    
+  </div>
+  <span class="example-spacer"></span>
+  <div class="demo-button">
+    <button
+      mat-raised-button
+      class="demo-button"
+      (click)="addUser()"
+    >
+      Add data
+    </button>
+    
+  </div>
+</mat-toolbar>
+<div class="mat-elevation-z5 demo-table">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="tablel"
+    matSort
+    multiTemplateDataRows
+  >
+    <ng-container matColumnDef="idUser">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id User</th>
+      <td mat-cell *matCellDef="let element">{{ element.idUser }}</td>
+    </ng-container>
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Full Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.fullName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>User Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.username }}</td>
+    </ng-container>
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+      <td mat-cell *matCellDef="let element">{{ element.role }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-icon-button
+          matTooltip="Click to View"
+          class="iconbutton"
+          color="accent"
+          (click)="viewRole(element)"
+        >
+          <mat-icon aria-label="View">visibility</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          matTooltip="Click to Edit"
+          class="iconbutton"
+          color="primary"
+          (click)="editUser(element)"
+        >
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          matTooltip="Click to Delete"
+          class="iconbutton"
+          color="warn"
+          (click)="deleteUser(element)"
+        >
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="changePass(element)">
+            <mat-icon>published_with_changes</mat-icon>
+            <span>Change Password</span>
+          </button>
+          <button mat-menu-item (click)="changeRole(element)">
+            <mat-icon>edit</mat-icon>
+            <span>Change Role</span>
+          </button>
+          
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let element; columns: displayedColumns"
+      class="example-element-row"
+    >
+      >
+    </tr>
+    <tr class="mat-row nodata" *matNoDataRow>
+      <td class="mat-cell" colspan="6">No data</td>
+    </tr>
+  </table>
+</div>

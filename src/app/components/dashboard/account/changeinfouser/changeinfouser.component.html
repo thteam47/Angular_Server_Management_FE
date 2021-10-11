@@ -1,0 +1,50 @@
+<form class="formclass" [formGroup]="form">
+  <h1 mat-dialog-title>Edit</h1>
+  <table class="table">
+    <tr>
+      <td class="left"><h3>Full Name</h3></td>
+      <td class="right">
+        <mat-form-field appearance="fill">
+          <mat-label>Full Name</mat-label>
+          <input
+            matInput
+            placeholder="Nguyễn Văn A"
+            formControlName="fullName"
+            [(ngModel)]="data.fullName"
+          />
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td class="left"><h3>User Name</h3></td>
+      <td class="right">
+        <span>{{data.username}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td><h3>Email</h3></td>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="admin@gmail.com"
+            formControlName="email"
+            [(ngModel)]="data.email"
+          />
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <div mat-dialog-content class="action">
+    <button type="button" mat-button (click)="onNoClick()">Cancel</button>
+    <button
+      (click)="complete()"
+      mat-button
+      [disabled]="form.invalid"
+      cdkFocusInitial
+    >
+      Submit
+    </button>
+  </div>
+</form>

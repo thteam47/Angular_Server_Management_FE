@@ -1,0 +1,27 @@
+.formclass {
+    text-align: center;
+    margin: auto;
+}
+.table {
+    margin: auto;
+    width: 450px;
+}
+.left {
+    width: 30%;
+}
+.right {
+    width: 70%;
+    text-align: center;
+}
+tr {
+    width: 100%;
+}
+mat-form-field {
+    width: 90%;
+}
+textarea {
+    width: 100%;
+}
+span {
+    font-size: 16px;
+}

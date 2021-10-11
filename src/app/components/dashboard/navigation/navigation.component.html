@@ -1,0 +1,77 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <!-- <mat-list-item *ngFor="let item of menu" [routerLink]="item.redirect" [routerLinkActive]="['active']">
+        <mat-icon  matListIcon class="nav-list-icon">{{ item.icon }}</mat-icon>
+        <a matLine>{{ item.nameMenu }}</a>
+      </mat-list-item> -->
+      <div *ngFor="let item of menu">
+        <a
+          *ngIf="item.show"
+          mat-list-item
+          [routerLink]="item.redirect"
+          routerLinkActive
+          #routerLinkActiveInstance="routerLinkActive"
+          [attr.tabindex]="routerLinkActiveInstance.isActive ? 0 : -1"
+          [class.list-item-active]="routerLinkActiveInstance.isActive"
+        >
+          <mat-icon matListIcon class="nav-list-icon">{{
+            item.icon
+          }}</mat-icon>
+          {{ item.nameMenu }}</a
+        >
+      </div>
+      <!-- <a
+        *ngIf="show"
+        mat-list-item
+        [routerLink]="/dashboard/newserver"
+        routerLinkActive
+        #routerLinkActiveInstance="routerLinkActive"
+        [attr.tabindex]="routerLinkActiveInstance.isActive ? 0 : -1"
+        [class.list-item-active]="routerLinkActiveInstance.isActive"
+      >
+        <mat-icon matListIcon class="nav-list-icon">supervisor_account</mat-icon>
+        User</a
+      > -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Admin</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon account" (click) = "accounts()">
+        <mat-icon>manage_accounts</mat-icon>
+        <span>Account</span>
+      </button>
+      <button
+        [routerLink]="['/login']"
+        routerLinkActive="router-link-active"
+        mat-icon-button
+        class="example-icon logout"
+        (click)="logout()"
+      >
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

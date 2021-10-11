@@ -1,0 +1,20 @@
+[
+    {
+        "nameMenu": "Dashboard",
+        "redirect": "/dashboard",
+        "icon": "dashboard",
+        "show": true
+    },
+    {
+        "nameMenu": "Detail Status",
+        "redirect": "/dashboard/detailstatus",
+        "icon": "details",
+        "show": true
+    },
+    {
+        "nameMenu": "User",
+        "redirect": "/dashboard/user",
+        "icon": "supervisor_account",
+        "show": true
+    }
+]

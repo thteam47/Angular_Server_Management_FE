@@ -1,0 +1,38 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 20%;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.account {
+  margin-right: 50px;
+}
+.logout {
+  margin-right: 30px;
+}
+
+.mat-list-item.active {
+  color: red;
+}
+mat-sidenav {
+  background-image: url(./../../../../assets/img/background.png);
+}
+/* .mat-toolbar.mat-primary {
+}
+.mat-drawer-container {
+  
+} */

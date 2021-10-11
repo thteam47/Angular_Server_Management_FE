@@ -1,0 +1,49 @@
+<div class="container cl">
+    <span class="close" (click)="closeDiaLog()">×</span>
+</div>
+<div class="title">
+  <h2>Account Admin</h2>
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <mat-card class="conte">
+        <mat-grid-list cols="2" rowHeight="40px">
+          <mat-grid-tile [colspan]="1" [rowspan]="1" class="text-capitalize">
+            Full Name: {{ user.fullName }}
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="5">
+            <img src="./assets/img/man.png" width="70%" />
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            Username: {{ user.username }}
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            Email: {{ user.email }}
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1" class="text-capitalize">
+            Role: {{ user.role }}
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            Action: 
+            <button
+            mat-icon-button
+            matTooltip="Click to View"
+            class="iconbutton"
+            color="accent"
+            (click)="viewRole()"
+          >
+            <mat-icon aria-label="View">visibility</mat-icon>
+          </button>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card>
+    </div>
+  </div>
+  <div class="text-center">
+    <div class="cod-12">
+      <button mat-stroked-button (click)="changePass()">Change Password</button>
+      <button mat-stroked-button (click)="editUser()" color="primary">Edit Account</button>
+    </div>
+  </div>
+</div>

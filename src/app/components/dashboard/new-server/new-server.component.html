@@ -1,0 +1,148 @@
+<div class="title">
+  <h2>Add Server</h2>
+</div>
+<form class="formclass" [formGroup]="form">
+  <mat-card class="conte">
+    <mat-grid-list cols="2" rowHeight="70px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <mat-label>Server Name</mat-label>
+          <input
+            matInput
+            placeholder="Server 1"
+            formControlName="serverName"
+            autocomplete="off"
+          />
+          <mat-error *ngIf="form.controls.serverName.hasError('required')">
+            Servername is required
+          </mat-error>
+          <mat-error
+            *ngIf="form.controls.serverName.hasError('validServername')"
+          >
+            Server Name cannot match
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="7">
+        <img src="./assets/img/server.png" width="60%" />
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            placeholder="Server 1"
+            formControlName="username"
+            autocomplete="off"
+          />
+          <mat-error *ngIf="form.controls.username.hasError('required')">
+            Username is required
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            placeholder="123456"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            autocomplete="off"
+            formControlName="password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error *ngIf="form.controls.password.hasError('required')">
+            Password is required
+          </mat-error>
+          <mat-error *ngIf="form.controls.password.hasError('pattern')">
+            Password is not in the correct format. At least 8 other letters, 1
+            uppercase letter, letter and number.
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <mat-label>Repeat Password</mat-label>
+          <input
+            placeholder="123456"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            autocomplete="off"
+            formControlName="repassword"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error *ngIf="form.controls.password.hasError('required')">
+            Password is required
+          </mat-error>
+          <mat-error *ngIf="form.controls.password.hasError('pattern')">
+            Password is not in the correct format. At least 8 other letters, 1
+            uppercase letter, letter and number.
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <mat-label>Ip</mat-label>
+          <input matInput placeholder="100.100.100.100" formControlName="ip" />
+          <mat-error *ngIf="form.controls.ip.hasError('required')">
+            Ip is required
+          </mat-error>
+          <mat-error *ngIf="form.controls.ip.hasError('pattern')">
+            Ip is not in the correct format: 100.100.100.100
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="2">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea
+            matInput
+            placeholder="Server in Vietnam..."
+            formControlName="description"
+          ></textarea>
+          <mat-error *ngIf="form.controls.description.hasError('required')">
+            Description is required
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <div class="demo-button">
+          <button
+            mat-raised-button
+            [routerLink]="['/dashboard']"
+            routerLinkActive="router-link-active"
+            class="demo-button"
+          >
+            Cancel
+          </button>
+          <button
+            mat-raised-button
+            (click)="addNew()"
+            [routerLink]="['/dashboard/newserver']"
+            routerLinkActive="router-link-active"
+            class="demo-button"
+            [disabled]="form.invalid"
+          >
+            Submit
+          </button>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card>
+</form>

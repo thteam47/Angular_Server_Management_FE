@@ -1,0 +1,54 @@
+<div class="title">
+  <h2>Detail Status</h2>
+</div>
+<form class="formclass" [formGroup]="form" (ngSubmit)="detail()">
+  <div class="container">
+    <div class="idserver">
+      <span>Id Server</span>
+      <mat-form-field appearance="fill" class="inputid">
+        <mat-label>Id</mat-label>
+        <input matInput formControlName="id" [(ngModel)]="id" />
+      </mat-form-field>
+    </div>
+  </div>
+  <button
+    type="submit"
+    class="inputU"
+    mat-raised-button
+    color="primary"
+    [disabled]="form.invalid"
+  >
+    Submit
+  </button>
+</form>
+<div class="viewAfter" *ngIf="hide">
+  <div class="container">
+    <div class="idserver">
+      <ejs-datetimepicker
+        [format]="format"
+        [enableMask]="enableMaskSupport"
+        width="200px"
+        floatLabelType="Always"
+        [(ngModel)]="dateStart"
+        [min]="minDateStart"
+        [max]="maxDateStart"
+        for="dateStart"
+        (ngModelChange)="onChangeStart($event)"
+      ></ejs-datetimepicker>
+    </div>
+    <div class="idserver">
+      <ejs-datetimepicker
+        [format]="format"
+        [enableMask]="enableMaskSupport"
+        width="200px"
+        floatLabelType="Always"
+        [(ngModel)]="dateEnd"
+        [min]="minDateEnd"
+        [max]="maxDateEnd"
+        (ngModelChange)="onChangeEnd($event)"
+      ></ejs-datetimepicker>
+    </div>
+  </div>
+</div>
+<h1 class="center">{{ statusServer }}</h1>
+<app-chartstatus *ngIf="hide" [listStatus]="listStatus"></app-chartstatus>

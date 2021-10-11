@@ -1,0 +1,46 @@
+<!-- <ng-terminal #term></ng-terminal> -->
+<ng-terminal #term [dataSource]="writeSubject" (keyInput)="onKeyInput($event)" [displayOption]="displayOptionBounded"
+[ngClass]="{'ng-terminal': (displayOption.activateDraggableOnEdge == undefined && displayOption.fixedGrid == undefined)}">
+</ng-terminal>
+<div [class.mat-elevation-z1]="true"
+    style="padding-left: 1em; padding-top: 0.3em; margin-top: 0.7em; padding-bottom: 1em">
+    <div>
+        <div style="display:inline-block; vertical-align: top; margin-bottom: 0.8em">
+            <h3>Display Opiton</h3>
+            <div>
+                <mat-slide-toggle class="example-margin" [checked]="resizable" [color]="color" (change)="resizableChange($event)"
+                    [disabled]="disabled">
+                    Resizable
+                </mat-slide-toggle>
+            </div>
+            <div>
+                <mat-slide-toggle class="example-margin" [checked]="fixed" [color]="color"
+                    (change)="fixedChange($event)" [disabled]="disabled">
+                    Fixed row and col
+                </mat-slide-toggle>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="rows" [formControl]="rowsControl" type="number">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="cols" [formControl]="colsControl" type="number">
+                </mat-form-field>
+            </div>
+        </div>
+        
+    </div>
+    <h3>Examples of data binding</h3>
+    <div>
+        <span style="font-size: 0.8em; font-weight: bold">[dataSource]</span>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Type here" value="" [formControl]="inputControl">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="write()">Write</button>
+        </div>
+    </div>
+    <div>
+        <span style="font-size: 0.8em; font-weight: bold">(keyInput): {{keyInput}}</span>
+    </div>
+</div>

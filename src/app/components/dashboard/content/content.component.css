@@ -1,0 +1,109 @@
+.demo-table {
+  width: 99%;
+  margin: auto;
+}
+.tablel {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.head {
+  width: 100%;
+  display: flex;
+  justify-items: center;
+}
+.search {
+  padding-left: 10px;
+  width: 30%;
+  justify-items: center;
+}
+.material-icons{
+  font-size: 20px;
+}
+mat-form-field {
+  padding-left: 5px;
+  width: 70%;
+}
+.demo-button {
+  padding-right: 10px;
+  margin: 5px;
+}
+.nodata{
+  text-align: center;
+}
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+}
+
+.example-element-description {
+  padding: 16px;
+  text-align: center;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+  
+}
+.mat-column-expandedDetail {
+  text-align: center;
+}
+.ShowHide{
+  margin: 0px 20px;
+  display: flex;
+}
+.togge{
+  padding-right: 10px;
+}
+.fieldSearch {
+  font-size: 12px;
+  width: 27%;
+  margin-left: 20px;;
+}
+.mat-column-operation {
+  width: 16%;
+  text-align: center;
+}
+.mat-column-idServer {
+  width: 25%;
+}
+.mat-column-serverName {
+  width: 15%;
+}
+.mat-column-username {
+  width: 12%;
+}
+.mat-column-password {
+  width: 15%;
+}
+.mat-column-status {
+  width: 6%;
+}
+.mat-header-cell{
+  font-weight: bold;
+  font-size: 14px;
+}
+.mat-header-row{
+  background-color: #A9D0F5;
+}
+.mat-row {
+  height: 60px;
+}

@@ -1,0 +1,129 @@
+<form class="formclass" [formGroup]="form">
+  <h1 mat-dialog-title>Edit</h1>
+  <table class="table">
+    <tr>
+      <td class="left"><h4>Full Name</h4></td>
+      <td class="right">
+        <mat-form-field appearance="fill">
+          <mat-label>Full Name</mat-label>
+          <input
+            matInput
+            placeholder="Nguyễn Văn A"
+            formControlName="fullName"
+          />
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td class="left"><h4>User Name</h4></td>
+      <td class="right">
+        <mat-form-field appearance="fill">
+          <mat-label>User Name</mat-label>
+          <input matInput placeholder="user1" formControlName="username" />
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td class="left"><h4>Password</h4></td>
+      <td class="right">
+        <mat-form-field appearance="fill">
+          <mat-label>New Password</mat-label>
+          <input
+            placeholder="123456"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            autocomplete="off"
+            formControlName="password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td class="left"><h4>Repeat Password</h4></td>
+      <td class="right">
+        <mat-form-field appearance="fill">
+          <mat-label>Repeat Password</mat-label>
+          <input
+            placeholder="123456"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            autocomplete="off"
+            formControlName="repassword"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td><h4>Email</h4></td>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="admin@gmail.com"
+            formControlName="email"
+          />
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td><h4>Role</h4></td>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Role</mat-label>
+          <mat-select [formControl]="selectRole">
+            <mat-option *ngFor="let item of listRole" [value]="item.value">{{
+              item.roleName
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr *ngIf="selectRole.value == 'staff'">
+      <td><h4>Action</h4></td>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Action</mat-label>
+          <mat-select [formControl]="action" multiple >
+            <!-- <mat-select-trigger>
+              {{toppings.value ? toppings.value[0] : ''}}
+              <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+              </span>
+            </mat-select-trigger> -->
+            <mat-option *ngFor="let item of listAction" [value]="item.value">{{item.actionName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <div mat-dialog-content class="action">
+    <button type="button" mat-button (click)="onNoClick()">Cancel</button>
+    <button
+      (click)="complete()"
+      mat-button
+      [disabled]="form.invalid"
+      cdkFocusInitial
+    >
+      Submit
+    </button>
+  </div>
+</form>

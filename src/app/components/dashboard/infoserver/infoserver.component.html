@@ -1,0 +1,43 @@
+<form class="formclass" [formGroup]="form">
+  <h1 mat-dialog-title>Edit</h1>
+  <table class="table">
+    
+    <tr>
+      <td class="left"><h3>Server Name</h3></td>
+      <td class="right">
+        <mat-form-field appearance="fill">
+          <mat-label>Server Name</mat-label>
+          <input matInput placeholder="Server 1" formControlName="serverName" [(ngModel)]="data.serverName"/>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td class="left"><h3>User Name</h3></td>
+      <td class="right">
+        <mat-form-field appearance="fill">
+          <mat-label>User Name</mat-label>
+          <input matInput placeholder="Server 1" formControlName="username" [(ngModel)]="data.username"/>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td><h3>Ip</h3></td>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Ip</mat-label>
+          <input matInput placeholder="100.100.100.100" formControlName="ip" [(ngModel)]="data.ip"/>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <h3>Description</h3>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput placeholder="Server in Vietnam..." formControlName="description" [(ngModel)]="data.description"></textarea>
+  </mat-form-field>
+  
+  <div mat-dialog-content class="action">
+    <button type="button" mat-button (click)="onNoClick()">Cancel</button>
+    <button (click)="complete()" mat-button  [disabled]="form.invalid" cdkFocusInitial>Submit</button>
+  </div>
+</form>
