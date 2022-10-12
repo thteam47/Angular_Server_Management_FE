@@ -1,0 +1,27 @@
+<div class="body">
+    <div class="login">
+        <mat-spinner class="spinner" diameter= "50" *ngIf="loading"></mat-spinner>
+
+        <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="login()">
+            <h1>Register</h1>
+            <mat-form-field class="inputU" appearance="fill">
+                <mat-label>Fullname</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="fullname">
+            </mat-form-field>
+            <mat-form-field class="inputU" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="email">
+            </mat-form-field>
+            <mat-form-field class="inputU" appearance="fill">
+                <mat-label>Username</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="username">
+            </mat-form-field>
+            <button type="submit" class="inputU" mat-raised-button color="primary" [disabled]="form.invalid">Submit</button>
+        </form>
+
+        <div class="link">
+            You have been account? <a routerLink='/login'>Login</a>
+        </div>
+    </div>
+</div>
+  

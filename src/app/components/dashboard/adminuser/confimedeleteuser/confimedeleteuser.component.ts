@@ -18,9 +18,10 @@ export class ConfimedeleteuserComponent implements OnInit {
   ngOnInit(): void {
   }
   complete() {
-    console.log(this.data.idUser)
-    this.userService.deleteUser(this.data.idUser).subscribe((res: any) => {
-      if (res.mess == "Done") {
+    this.userService.deleteUser(this.data.userId).subscribe((res: any) => {
+      console.log(this.data.userId)
+      console.log(res)
+      if (res) {
         this.dialogRef.close();
         this.toastr.success('Delete User Succesfull', 'Done');       
       }

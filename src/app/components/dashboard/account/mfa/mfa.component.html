@@ -1,0 +1,41 @@
+<form class="formclass" [formGroup]="form">
+    <h1 mat-dialog-title>Update Mfa</h1>
+    <table class="table">
+     
+      <tr>
+        <td><h4>Type</h4></td>
+        <td>
+          <mat-radio-group aria-label="Select an option" [(ngModel)] = "typeMfa" [ngModelOptions]="{standalone: true}">
+            <mat-radio-button value="EmailOtp">Gmail</mat-radio-button>
+            <mat-radio-button value="Totp">Google Authentication</mat-radio-button>
+          </mat-radio-group>
+        </td>
+      </tr>
+      <tr>
+        <td><h3>Public Data</h3></td>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Public Data</mat-label>
+            <input
+              matInput
+              placeholder="admin@gmail.com"
+              formControlName="publicData"
+              [(ngModel)]="data.email"
+            />
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <div mat-dialog-content class="action">
+      <button type="button" mat-button (click)="onNoClick()">Cancel</button>
+      <button
+        (click)="complete()"
+        mat-button
+        [disabled]="form.invalid"
+        cdkFocusInitial
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+  

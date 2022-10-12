@@ -1,6 +1,16 @@
 <div class="container">
-    <span style="font-size: 20px; font-weight: bold ;">Action</span>
-    <div class="listItem text-capitalize" *ngFor="let item of data.action">
-        <span>{{ item }}</span>
+    <span style="font-size: 20px; font-weight: bold ;">Role</span>
+    <br>
+    <span style="font-size: 16px; margin-top: 10px;">{{data.role}}</span>
+    <br>
+    <br>
+    <span style="font-size: 16px; font-weight: bold ;">Permission All</span>
+    <br>
+    <span style="font-size: 16px; margin-top: 10px;">{{data.permission_all}}</span>
+    <br>
+    <br>
+    <span style="font-size: 16px; font-weight: bold ;">Permission</span>
+    <div class="listItem text-capitalize" *ngFor="let item of data.permissions">
+        <span>{{ item.privilege }}: <span *ngFor="let action of item.actions">{{action}} </span></span>
     </div>   
 </div>

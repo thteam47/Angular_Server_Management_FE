@@ -28,6 +28,8 @@ import { ConfimedeleteuserComponent } from './adminuser/confimedeleteuser/confim
 import { AdduserComponent } from './adminuser/adduser/adduser.component';
 import { ChangeroleComponent } from './adminuser/changerole/changerole.component';
 import { SshterminalComponent } from './content/sshterminal/sshterminal.component';
+import { ApproveUserComponent } from './account/approve-user/approve-user.component';
+import { MfaComponent } from './account/mfa/mfa.component';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { SshterminalComponent } from './content/sshterminal/sshterminal.componen
     AdduserComponent,
     ChangeroleComponent,
     SshterminalComponent,
+    ApproveUserComponent,
+    MfaComponent,
   ],
   imports: [
     CommonModule,

@@ -55,9 +55,9 @@ export class NavigationComponent {
   listMenu() {
     this._menuServices.getMenu().subscribe(data => {
       this.menu = data;
-      if (this.role != "admin") {
-        this.menu[2].show = false;
-      }
+      // if (this.role != "admin") {
+      //   this.menu[2].show = false;
+      // }
     },
     )
   }

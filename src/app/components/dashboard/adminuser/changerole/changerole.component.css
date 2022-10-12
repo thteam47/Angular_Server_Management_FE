@@ -31,3 +31,6 @@ span {
   opacity: 0.75;
   font-size: 0.75em;
 }
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}

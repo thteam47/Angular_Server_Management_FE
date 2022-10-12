@@ -50,7 +50,7 @@ tr.example-element-row:not(.example-expanded-row):active {
   text-align: center;
 }
 .mat-column-idServer {
-  width: 25%;
+  width: 15%;
 }
 .mat-column-serverName {
   width: 15%;
@@ -62,7 +62,7 @@ tr.example-element-row:not(.example-expanded-row):active {
   width: 15%;
 }
 .mat-column-status {
-  width: 6%;
+  width: 10%;
 }
 .mat-header-cell {
   font-weight: bold;

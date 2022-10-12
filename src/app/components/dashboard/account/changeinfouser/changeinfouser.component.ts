@@ -31,13 +31,13 @@ export class ChangeinfouserComponent implements OnInit {
 
     const dataSer = <ifUser>{
       data: <User>{
-        idUser: "",
+        userId: "",
         fullName: this.form.value.fullName,
         email: this.form.value.email,
-        username: this.data.username,
       }
     }
-    this.userService.updateUser(dataSer, this.data.idUser).subscribe((res: any) => {
+    console.log(this.data.userId)
+    this.userService.updateUser(dataSer, this.data.userId).subscribe((res: any) => {
       this.toastr.success('Update User Succesfull', 'Done');
       this.dialogRef.close();
     },

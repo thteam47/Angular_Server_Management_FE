@@ -12,6 +12,7 @@ export class RoleComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<RoleComponent>, @Inject(MAT_DIALOG_DATA) public data: User) { }
 
   ngOnInit(): void {
+    console.log(this.data)
   }
 
 }

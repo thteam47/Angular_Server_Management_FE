@@ -204,8 +204,8 @@ export class ContentComponent implements OnInit {
     }
     else {
       const con = <User>{
-        username: element.username,
-        password: element.password,
+        // username: element.username,
+        // password: element.password,
       }
       this.serverService.connect(con).subscribe((res: any) => {
         if (res.mess == "Done") {

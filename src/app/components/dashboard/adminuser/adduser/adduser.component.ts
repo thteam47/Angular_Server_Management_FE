@@ -45,13 +45,13 @@ export class AdduserComponent implements OnInit {
   }
   complete(): void {
     const dataUser = <User>{
-      idUser: "",
-      fullName: this.form.value.fullName,
-      email: this.form.value.email,
-      username: this.form.value.username,
-      password: this.form.value.password,
-      role: this.selectRole.value,
-      action: this.action.value,
+      // idUser: "",
+      // fullName: this.form.value.fullName,
+      // email: this.form.value.email,
+      // username: this.form.value.username,
+      // password: this.form.value.password,
+      // role: this.selectRole.value,
+      // action: this.action.value,
     }
     this.userService.addUser(dataUser).subscribe((res: any) => {
       this.toastr.success('Add User Succesfull', 'Done');

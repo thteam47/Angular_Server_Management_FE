@@ -15,18 +15,21 @@
           </mat-form-field>
         </td>
       </tr>
+      <tr>
+        <td><h4>Permission All</h4></td>
+        <td>
+          <mat-radio-group aria-label="Select an option" [(ngModel)] = "permissionAll" [ngModelOptions]="{standalone: true}">
+            <mat-radio-button value="1">True</mat-radio-button>
+            <mat-radio-button value="2">False</mat-radio-button>
+          </mat-radio-group>
+        </td>
+      </tr>
       <tr *ngIf="selectRole.value == 'staff'">
         <td><h4>Action</h4></td>
         <td>
           <mat-form-field appearance="fill">
             <mat-label>Action</mat-label>
-            <mat-select [formControl]="action" multiple >
-              <!-- <mat-select-trigger>
-                {{toppings.value ? toppings.value[0] : ''}}
-                <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
-                  (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
-                </span>
-              </mat-select-trigger> -->
+            <mat-select [formControl]="permissions" multiple >
               <mat-option *ngFor="let item of listAction" [value]="item.value">{{item.actionName}}</mat-option>
             </mat-select>
           </mat-form-field>

@@ -6,6 +6,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgOtpInputModule } from 'ng-otp-input';
+import {MatRadioModule} from '@angular/material/radio';
+
 //api
 
 //components
@@ -23,6 +26,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { SiblingService } from './services/sibling.service';
 import { CookieService } from 'ngx-cookie-service';
+import { PrepareLoginComponent } from './components/prepare-login/prepare-login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { VerifyAccountComponent } from './components/verify-account/verify-account.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { UpdateForgotPasswordComponent } from './components/update-forgot-password/update-forgot-password.component';
 
 
 @NgModule({
@@ -30,6 +38,11 @@ import { CookieService } from 'ngx-cookie-service';
     AppComponent,
     LoginComponent,
     DashboardsComponent,
+    PrepareLoginComponent,
+    RegisterComponent,
+    VerifyAccountComponent,
+    ForgotPasswordComponent,
+    UpdateForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +59,8 @@ import { CookieService } from 'ngx-cookie-service';
     MatSidenavModule,
     MatListModule,
     HttpClientModule,
+    NgOtpInputModule,
+    MatRadioModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       progressBar: true

@@ -7,6 +7,7 @@ import { User } from 'src/app/interface/user';
 import { UserService } from 'src/app/services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthenInfo } from 'src/app/interface/authenInfo';
 
 @Component({
   selector: 'app-login',
@@ -34,27 +35,51 @@ export class LoginComponent implements OnInit {
   login() {
     const username = this.form.value.username;
     const password = this.form.value.password;
-    const user = <User>{
+    const authenInfo = <AuthenInfo>{
+      type: "UsernamePassword",
       username: this.form.value.username,
       password: this.form.value.password
     }
-    this.userService.loginAdmin(user).subscribe((res: any) => {
-      if (res.ok == true) {
-        localStorage.setItem('token', res.accessToken)
-        localStorage.setItem('role', res.role)
-        this.fakeLoading();
-        this.toastr.success('Login Succesfull');
+    this.userService.loginAdmin(authenInfo).subscribe((res: any) => {
+      console.log("res", res);
+      if (res.errorCode === 0) {
+        this.userService.prepareLogin(res.token).subscribe((res: any) => {
+          console.log("res", res);
+          localStorage.setItem('token', res.token)
+          if (res.typeMfa !== "") {
+            this.router.navigate(['prepare-login'], {
+              state: {
+                message: res.message,
+                requestId: res.requestId,
+              }
+            });
+            localStorage.setItem('message', res.message)
+            localStorage.setItem('typeMfa', res.typeMfa)
+            localStorage.setItem('requestId', res.requestId)
+            localStorage.setItem('token', res.token)
+            
+          } else {
+            this.router.navigate(['dashboard']);
+          }
+        },
+          (err: any) => {
+            this.error(err);
+          }
+        )
+      } else {
+        this.error(res.message);
+        // this.form.reset();
       }
     },
       (err: any) => {
-        this.error();
+        this.error(err);
         this.form.reset();
       }
     )
   }
 
-  error() {
-    this._snackBar.open('Username or password incorrect', 'Again', {
+  error(message: string) {
+    this._snackBar.open(message, 'Again', {
       duration: 3000,
       horizontalPosition: 'center',
       verticalPosition: 'bottom',

@@ -33,6 +33,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgTerminalModule } from 'ng-terminal';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -66,7 +67,7 @@ import { NgTerminalModule } from 'ng-terminal';
     DateTimePickerModule,
     MatCheckboxModule,
     NgTerminalModule,
-
+    MatRadioModule,
   ],
   exports: [
     MatFormFieldModule,
@@ -96,7 +97,7 @@ import { NgTerminalModule } from 'ng-terminal';
     DateTimePickerModule,
     MatCheckboxModule,
     NgTerminalModule,
-
+    MatRadioModule,
   ]
 })
 export class SharedModule { }

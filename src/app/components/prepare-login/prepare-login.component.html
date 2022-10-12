@@ -1,0 +1,12 @@
+<div class="body">
+    <div class="login">
+        <div class="message">
+            {{message}}
+        </div>
+        <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" *ngIf="showOtpComponent" [config]="config">
+        </ng-otp-input>
+        <div class="resent" *ngIf="typeMfa === 'SmsOtp'" style="margin-top: 10px">
+            <a [routerLink]="" queryParamsHandling="preserve" (click)="resendOTP()" >Resend OTP</a>
+        </div>
+    </div>
+</div>
